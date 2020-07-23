@@ -12,9 +12,8 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <gatling.version>${project.version}</gatling.version>
-    <gatling-maven-plugin.version>3.0.5</gatling-maven-plugin.version>
-    <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
-    <scala-maven-plugin.version>4.4.0</scala-maven-plugin.version>
+    <gatling-plugin.version>3.0.3</gatling-plugin.version>
+    <scala-maven-plugin.version>4.1.1</scala-maven-plugin.version>
   </properties>
 
   <dependencies>
@@ -30,10 +29,6 @@
     <testSourceDirectory>src/test/scala</testSourceDirectory>
     <plugins>
       <plugin>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>${maven-jar-plugin.version}</version>
-      </plugin>
-      <plugin>
         <groupId>net.alchim31.maven</groupId>
         <artifactId>scala-maven-plugin</artifactId>
         <version>${scala-maven-plugin.version}</version>
@@ -43,7 +38,6 @@
               <goal>testCompile</goal>
             </goals>
             <configuration>
-              <recompileMode>all</recompileMode>
               <jvmArgs>
                 <jvmArg>-Xss100M</jvmArg>
               </jvmArgs>
@@ -59,11 +53,11 @@
           </execution>
         </executions>
       </plugin>
-<!--      <plugin>-->
-<!--        <groupId>io.gatling</groupId>-->
-<!--        <artifactId>gatling-maven-plugin</artifactId>-->
-<!--        <version>${gatling-maven-plugin.version}</version>-->
-<!--      </plugin>-->
+      <plugin>
+        <groupId>io.gatling</groupId>
+        <artifactId>gatling-maven-plugin</artifactId>
+        <version>${gatling-plugin.version}</version>
+      </plugin>
       <plugin>
         <groupId>io.gatling.frontline</groupId>
         <artifactId>frontline-maven-plugin</artifactId>
@@ -79,3 +73,4 @@
     </plugins>
   </build>
 </project>
+
